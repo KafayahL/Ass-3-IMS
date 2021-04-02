@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.decorators import login_required
-from easy_pdf import rendering
+# from easy_pdf import rendering
 
 from .models import *
 
@@ -91,35 +91,25 @@ def transaction(request):
     return render(request, 'ims/index.html', context)
 
 
-@login_required
-def report(request):
-    user = request.user
-    inventory = Inventory.objects.all()
-    tobj = Transaction.objects.all().filter(uid_id=user.id, success=True)
-    context = {
-        'report': 1,
-        'inventory_report': inventory,
-        'transaction_report': tobj,
-        'user': request.user
-    }
-    if request.method == 'POST' and request.POST.get('ireport'):
-        return rendering.render_to_pdf_response(request, 'ims/ipdf.html', context, using=None, download_filename=None,
-                                                content_type='application/pdf', response_class=HttpResponse)
+# @login_required
+# def report(request):
+#     user = request.user
+#     inventory = Inventory.objects.all()
+#     tobj = Transaction.objects.all().filter(uid_id=user.id, success=True)
+#     context = {
+#         'report': 1,
+#         'inventory_report': inventory,
+#         'transaction_report': tobj,
+#         'user': request.user
+#     }
+#     if request.method == 'POST' and request.POST.get('ireport'):
+#         return rendering.render_to_pdf_response(request, 'ims/ipdf.html', context, using=None, download_filename=None,
+#                                                 content_type='application/pdf', response_class=HttpResponse)
+#
+#     if request.method == 'POST' and request.POST.get('treport'):
+#         return rendering.render_to_pdf_response(request, 'ims/tpdf.html', context, using=None,
+#                                                 download_filename=None,
+#                                                 content_type='application/pdf', response_class=HttpResponse)
+#     return render(request, 'ims/index.html', context)
+#
 
-    if request.method == 'POST' and request.POST.get('treport'):
-        return rendering.render_to_pdf_response(request, 'ims/tpdf.html', context, using=None,
-                                                download_filename=None,
-                                                content_type='application/pdf', response_class=HttpResponse)
-    return render(request, 'ims/index.html', context)
-
-
-def chart(request):
-    listOfSuppliers = [i['sname'] for i in SupplierProductCostView.objects.all().values('sname')]
-    dataOfProducts = [i['price'] if i['price'] is not None else 0 for i in
-                      SupplierProductCostView.objects.all().values('price')]
-    print(listOfSuppliers, dataOfProducts)
-    context = {
-        'listOfSuppliers': listOfSuppliers,
-        'dataOfProducts': dataOfProducts,
-    }
-    return render(request, 'ims/chart.html', context)

@@ -24,8 +24,8 @@
                 <li><a href="{% url 'inventory' %}">Inventory</a></li>
                 <li><a href="{% url 'checkout' %}">Checkout</a></li>
                 <li><a href="{% url 'transaction' %}">Transaction</a></li>
-                <li><a href="{% url 'report' %}">Generate Report</a></li>
-                <li><a href="{% url 'chart' %}">Charts</a></li>
+
+
                 <li><a href="{% url 'password_change' %}">Change Password</a></li>
                  {% if user.is_authenticated %}
                     <li class="dropdown">
@@ -49,8 +49,8 @@
     <li><a href="{% url 'inventory' %}">Manage Inventory</a></li>
     <li><a href="{% url 'checkout' %}">Checkout</a></li>
     <li><a href="{% url 'transaction' %}">Transaction</a></li>
-    <li><a href="{% url 'report' %}">Generate Report</a></li>
-    <li><a href="{% url 'chart' %}">Charts</a></li>
+
+
 </ul>
 
     {% block body %}
