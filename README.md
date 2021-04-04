@@ -1,6 +1,7 @@
 # Ass-3-IMS
 Assignment 3  
 Project : Assignment 3 Kays Inventory Management System 
+
 Description: Inventory management system web application to help a store owner who specializes in African wears track their inventory. This application will track 
 A.	Inventory: To take stock of the clothes available for sale, listing the original price of the item and the sale price, and the name of the supplier who provides the item. 
     This also gives you the ability to add a new item to the inventory
