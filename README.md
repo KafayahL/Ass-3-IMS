@@ -12,5 +12,12 @@ A.	Inventory: To take stock of the clothes available for sale, listing the origi
 B.	Supplier: The application will also track supplier name, contact information, and address, this application gives you the user the ability to add and remove any supplier at anytime 
 
 C.	Transaction: The Inventory Management system will allow the user to track the different transactions made, providing a link back to what is bought, who bought it, 
-    and if it was a successful transaction
+    and if it was a successful transaction 
+    
+To install locally
+1. Clone Repository or download zip file 
+2. Open file with pycharm on your computer 
+3. install requiremnets 
+4. make migrations 
+5. run application locally. 
 
